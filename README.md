@@ -6,7 +6,7 @@ Beamforming is a pivotal technology in modern systems like wireless communicatio
 
 ## **Video Demo**
 
-[Insert link to video demo showcasing the application, features, and scenarios]
+https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6
 
 ---
 
@@ -105,5 +105,3 @@ For any questions or suggestions, feel free to reach out:
 
 - **Name**: Yassien Tawfik  
 - **Email**: [Yassien.m.m.tawfik@gmail.com](mailto:Yassien.m.m.tawfik@gmail.com)
-
----
