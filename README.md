@@ -27,6 +27,70 @@ Below is a screenshot showcasing the overall design and interface of the simulat
 - **Multiple Array Units**: Add multiple phased array units, each with adjustable parameters and locations.  
 
 ---
+## **Equations Used**
+
+The beamforming simulator relies on the following equations for key computations:
+
+### **1. Intensity Map**
+The intensity map is computed as:
+
+- **Phase Shift**:
+
+$$
+\text{Phase Shift} = -k \cdot (x \cdot \sin(\text{Steering Angle}) + y \cdot \cos(\text{Steering Angle}))
+$$
+
+
+- **Intensity Map**:
+
+$$
+\text{Intensity Map} = \left| \sum_{\text{elements}} \exp\left(j \cdot (k \cdot \text{Distances} + \text{Phase Shift})\right) \right|^2
+$$
+
+  where:
+  
+$$
+\text{Distance} = \sqrt{(X - x_{\text{element}})^2 + (Y - y_{\text{element}})^2}
+$$
+
+- **Normalization**: 
+
+$$
+\text{Normalized Intensity} = \frac{\text{Intensity Map}}{\max(\text{Intensity Map})}
+$$
+
+---
+
+### **2. Beam Profile (Array Factor)**
+
+The beam profile (or array factor) is given by: 
+
+$$
+\text{Array Factor} = \left| \sum_{\text{elements}} \exp\left(j \cdot \left[k \cdot (x \cdot \sin(\theta) + y \cdot \cos(\theta)) + \text{Phase Shift}\right]\right) \right|^2
+$$
+
+
+---
+
+### **3. Array Geometry**
+
+The positions of the array elements depend on the geometry:
+
+- **Linear Array**: 
+  
+$$
+x_i = i \cdot \text{Element Spacing} - \frac{(N-1) \cdot \text{Element Spacing}}{2}, \quad y_i = 0
+$$
+
+- **Curved Array**:
+  
+$$
+x_i = R \cdot \cos(\text{Angle}) - R, \quad y_i = R \cdot \sin(\text{Angle})
+$$
+
+
+---
+
 
 ## **Scenarios**
 
