@@ -6,7 +6,7 @@ import pyqtgraph as pg
 
 from App.UI.Design import Ui_MainWindow
 from App.Logging_Manager import LoggingManager
-from App.SimpleSimulation import BeamformingSimulator
+from App.Simulation import BeamformingSimulator
 
 
 class MainController:
