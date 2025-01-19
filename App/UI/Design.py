@@ -285,7 +285,7 @@ class Ui_MainWindow(object):
         intensityMapItem.addItem(self.intensityImageItem)
 
         # Apply colormap to Intensity Map
-        colormap = pg.colormap.get('jet', source='matplotlib')
+        colormap = pg.colormap.get('seismic', source='matplotlib')
         self.intensityImageItem.setLookupTable(colormap.getLookupTable())
 
         # Add Color Bar
