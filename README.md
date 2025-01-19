@@ -4,6 +4,13 @@ Beamforming is a pivotal technology in modern systems like wireless communicatio
 
 ---
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+---
+
 ## **Video Demo**
 
 https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6
@@ -153,19 +160,30 @@ The simulator supports three distinct scenarios, each designed to address specif
 
 ---
 
-## **Team**
+## Contributors
 
-This project wouldn’t have been possible without the hard work and collaboration of my amazing team. Huge shout-out to:
-
-- [Nancy Mahmoud](https://github.com/nancymahmoud1)  
-- [Madonna Mosaad](https://github.com/madonna-mosaad)  
-- [Yassien Tawfik](https://github.com/YassienTawfikk)
-
----
-
-## **Contact**
-
-For any questions or suggestions, feel free to reach out:
-
-- **Name**: Yassien Tawfik  
-- **Email**: [Yassien.m.m.tawfik@gmail.com](mailto:Yassien.m.m.tawfik@gmail.com)
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/nancymahmoud1" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/125357872?v=4" width="150px;" alt="Nancy Mahmoud"/>
+        <br />
+        <sub><b>Nancy Mahmoud</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/madonna-mosaad" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/127048836?v=4" width="150px;" alt="Madonna Mosaad"/>
+        <br />
+        <sub><b>Madonna Mosaad</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/YassienTawfikk" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/126521373?v=4" width="150px;" alt="Yassien Tawfik"/>
+        <br />
+        <sub><b>Yassien Tawfik</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
