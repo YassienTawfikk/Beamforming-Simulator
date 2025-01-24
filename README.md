@@ -161,8 +161,8 @@ The simulator supports three distinct scenarios, each designed to address specif
 ---
 
 ## Contributors
-
-<table>
+<div>
+<table align="center">
   <tr>
         <td align="center">
       <a href="https://github.com/YassienTawfikk" target="_blank">
@@ -185,5 +185,14 @@ The simulator supports three distinct scenarios, each designed to address specif
         <sub><b>Nancy Mahmoud</b></sub>
       </a>
     </td>
+    </td>
+        <td align="center">
+      <a href="https://github.com/yousseftaha167" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/128304243?v=4" width="150px;" alt="Youssef Taha"/>
+        <br />
+        <sub><b>Youssef Taha</b></sub>
+      </a>
+    </td>    
   </tr>
 </table>
+</div>
