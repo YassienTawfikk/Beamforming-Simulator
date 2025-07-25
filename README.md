@@ -2,6 +2,8 @@
 
 Beamforming is a pivotal technology in modern systems like wireless communications, radar, ultrasound, and biomedical applications. This project presents a **2D Beamforming Simulator** that allows users to explore, customize, and visualize beamforming scenarios in real time. The simulator provides intuitive controls, flexible customization, and clear visualizations for various applications.
 
+![App Design Overview](https://github.com/user-attachments/assets/dc2b35f6-d83d-47d4-816d-8e1e244de49b)
+
 ---
 
 ## License
@@ -16,12 +18,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6
 
 ---
-
-## **Overview**
-
-Below is a screenshot showcasing the overall design and interface of the simulator:
-
-![App Design Overview](https://github.com/user-attachments/assets/7ed47a00-2fa8-46cd-a634-4b6f1c3925ce)
 
 ---
 
