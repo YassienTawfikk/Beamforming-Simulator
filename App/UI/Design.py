@@ -12,6 +12,19 @@ class Ui_MainWindow(object):
                  current_elements_spacing=0.05, current_steering_angle=0, current_operating_frequency=100e3):
         self.visualization_widget = ArrayVisualizationWidget()
 
+        # Screen geometry for dynamic sizing
+        self.screen_geometry = QtWidgets.QApplication.primaryScreen().availableGeometry()
+        self.base_width = self.screen_geometry.width()
+        self.base_height = self.screen_geometry.height()
+
+        # Calculate dynamic sizes
+        self.window_width = int(self.base_width * 0.9)
+        self.window_height = int(self.base_height * 0.85)
+
+        # Ratios used to scale fixed design values
+        self.width_ratio = self.window_width / 1280
+        self.height_ratio = self.window_height / 800
+
         self.BUTTON_STYLESHEET = """
         QPushButton {
             color: #B0BEC5;
@@ -171,7 +184,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1280, 800)
+        MainWindow.resize(self.window_width, self.window_height)
         MainWindow.setFont(QtGui.QFont("Noto Serif Balinese"))
         MainWindow.setStyleSheet("background-color:#1A1A40")
 
@@ -190,7 +203,14 @@ class Ui_MainWindow(object):
     def setupVisualization(self, MainWindow):
         # Container for graphs and controls
         self.graphsContainer = QtWidgets.QWidget(self.centralwidget)
-        self.graphsContainer.setGeometry(QtCore.QRect(0, 120, 1280, 650))
+        self.graphsContainer.setGeometry(
+            QtCore.QRect(
+                0,
+                int(120 * self.height_ratio),
+                self.window_width,
+                int(650 * self.height_ratio),
+            )
+        )
         self.graphsContainer.setStyleSheet("""
             QWidget {
                 background-color: rgba(34, 34, 68, 255);
@@ -319,11 +339,23 @@ class Ui_MainWindow(object):
         self.arrayShapeItem = arrayShapeItem
 
     def setupHorizontalLayouts(self):
-        self.title_layout = self.createHorizontalLayout(self.centralwidget, 470, 10, 372, 52)
+        self.title_layout = self.createHorizontalLayout(
+            self.centralwidget,
+            int(470 * self.width_ratio),
+            int(10 * self.height_ratio),
+            int(372 * self.width_ratio),
+            int(52 * self.height_ratio),
+        )
         self.title_icon = self.createLabel(self.title_layout, "./Static/Sensor.png", 50)
         self.title_label = self.createLabel(self.title_layout, text_font=("PT Sans", 20), max_size=(370, 50))
 
-        self.inputs_layout = self.createHorizontalLayout(self.centralwidget, 20, 70, 1241, 41)
+        self.inputs_layout = self.createHorizontalLayout(
+            self.centralwidget,
+            int(20 * self.width_ratio),
+            int(70 * self.height_ratio),
+            int(1241 * self.width_ratio),
+            int(41 * self.height_ratio),
+        )
 
     def setupMainButtons(self, MainWindow):
         self.return_main_buttons = self.createButton(self.inputs_layout, "Back", self.return_main_initial_button, isVisible=False)
@@ -355,14 +387,28 @@ class Ui_MainWindow(object):
 
         # Creating the quit_app_button directly on the centralwidget without using the layout
         self.scenarios_button = QtWidgets.QPushButton(self.centralwidget)
-        self.scenarios_button.setGeometry(QtCore.QRect(1080, 15, 110, 40))
+        self.scenarios_button.setGeometry(
+            QtCore.QRect(
+                int(1080 * self.width_ratio),
+                int(15 * self.height_ratio),
+                int(110 * self.width_ratio),
+                int(40 * self.height_ratio),
+            )
+        )
         self.scenarios_button.setFont(QtGui.QFont("Hiragino Sans GB", 13, True))
         self.scenarios_button.setStyleSheet(self.SCENARIOS_BUTTON_STYLESHEETSHEET)
         self.scenarios_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.scenarios_button.setText("Scenarios")
 
         self.quit_app_button = QtWidgets.QPushButton(self.centralwidget)
-        self.quit_app_button.setGeometry(QtCore.QRect(1200, 15, 40, 40))
+        self.quit_app_button.setGeometry(
+            QtCore.QRect(
+                int(1200 * self.width_ratio),
+                int(15 * self.height_ratio),
+                int(40 * self.width_ratio),
+                int(40 * self.height_ratio),
+            )
+        )
         self.quit_app_button.setFont(QtGui.QFont("Hiragino Sans GB", 40, True))
         self.quit_app_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.quit_app_button.setStyleSheet(self.QUIT_BUTTON_STYLESHEETSHEET)
@@ -370,7 +416,9 @@ class Ui_MainWindow(object):
 
     def setupMenuBar(self, MainWindow):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1280, 22))
+        self.menubar.setGeometry(
+            QtCore.QRect(0, 0, self.window_width, int(22 * self.height_ratio))
+        )
         MainWindow.setMenuBar(self.menubar)
 
     # --------------------------------------------------------------------------------------------------------------------------------------
