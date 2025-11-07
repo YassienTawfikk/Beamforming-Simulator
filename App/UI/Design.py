@@ -330,7 +330,7 @@ class Ui_MainWindow(object):
         self.current_selected_array_button = self.createButton(self.inputs_layout, "Array 1", self.toggle_current_selected_array,
                                                                isVisible=False)
 
-        self.adjust_array_number = self.createButton(self.inputs_layout, "Adjust Arrays Number", self.show_arrays_number_SpinBox)
+        self.adjust_array_number = self.createButton(self.inputs_layout, "Arrays Number", self.show_arrays_number_SpinBox)
         self.arrays_number_SpinBox = self.createSpinBox(self.inputs_layout, min_value=1, max_value=8, initial_value=self.current_arrays_number,
                                                         isVisible=False)
 
