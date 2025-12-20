@@ -1,5 +1,5 @@
 import numpy as np
-from app.logging_manager import LoggingManager
+from app.utils.logging_manager import LoggingManager
 
 
 class BeamformingSimulator:

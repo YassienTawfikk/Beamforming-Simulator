@@ -3,12 +3,12 @@ import math
 import numpy as np
 import pyqtgraph as pg
 import os
-import shutil
 
-from app.ui.design import Ui_MainWindow
-from app.logging_manager import LoggingManager
-from app.simulation import BeamformingSimulator
-
+from app.views.main_view import Ui_MainWindow
+from app.utils.logging_manager import LoggingManager
+from app.models.simulation import BeamformingSimulator
+from app.utils.project_cleaner import ProjectCleaner
+from app.models.scenario_manager import ScenarioManager
 
 class MainController:
     def __init__(self, app):
@@ -17,6 +17,10 @@ class MainController:
 
         self.logging = LoggingManager()  # Singleton instance
         self.logging.log("Controller Initializing...")
+        
+        # Initialize Helpers
+        self.scenario_manager = ScenarioManager()
+        self.current_scenario = None
 
         self.view = Ui_MainWindow()
         self.initialize_view()
@@ -27,7 +31,6 @@ class MainController:
     def initialize_view(self):
         self.view.setupUi(self.main_window)
         self.view.scenarios_button.clicked.connect(self.toggle_scenario)
-        self.current_scenario = None
 
         self.view.elements_number_SpinBox.editingFinished.connect(self.update_current_elements_number)
 
@@ -43,40 +46,13 @@ class MainController:
         self.view.quit_app_button.clicked.connect(self.close_application)
 
     def toggle_scenario(self):
-        scenario_settings = {
-            '5G': {
-                'frequency': 30,
-                'frequency_bandwidth_index': 2,
-                'elements_spacing': 50,
-                'curvature': 0,
-                'num_elements': 32
-            },
-            'Ultrasound': {
-                'frequency': 100,
-                'frequency_bandwidth_index': 2,
-                'elements_spacing': 10,
-                'curvature': 90,
-                'num_elements': 64
-            },
-            'Tumor Ablation': {
-                'frequency': 50,
-                'frequency_bandwidth_index': 2,
-                'elements_spacing': 15,
-                'curvature': 0,
-                'num_elements': 128
-            }
-        }
-
-        scenarios = list(scenario_settings.keys())
-        if self.current_scenario is None:
-            self.current_scenario = '5G'
-        else:
-            current_index = scenarios.index(self.current_scenario)
-            self.current_scenario = scenarios[(current_index + 1) % len(scenarios)]
-
+        self.current_scenario = self.scenario_manager.get_next_scenario(self.current_scenario)
         self.logging.log_action(f"User switched scenario to: {self.current_scenario}")
 
-        scenario = scenario_settings[self.current_scenario]
+        scenario = self.scenario_manager.get_scenario_settings(self.current_scenario)
+        if not scenario:
+             self.logging.log_error(f"Failed to load settings for scenario: {self.current_scenario}")
+             return
 
         self.view.operating_frequency_spinbox.setValue(scenario['frequency'])
         self.view.operating_frequency_range_combobox.setCurrentIndex(scenario['frequency_bandwidth_index'])
@@ -219,32 +195,9 @@ class MainController:
         self.update_operating_frequency()
         self.update_elements_spacing()
 
-    def clean_project(self):
-        project_root = os.getcwd()
-        self.logging.log("Starting project cleanup...")
-
-        # 1. Remove .idea, __pycache__, .DS_Store
-        for root, dirs, files in os.walk(project_root):
-             if "__pycache__" in dirs:
-                 shutil.rmtree(os.path.join(root, "__pycache__"))
-             
-             if ".DS_Store" in files:
-                 os.remove(os.path.join(root, ".DS_Store"))
-
-        idea_path = os.path.join(project_root, ".idea")
-        if os.path.exists(idea_path):
-             shutil.rmtree(idea_path)
-
-        # 2. Generate .gitignore
-        gitignore_path = os.path.join(project_root, ".gitignore")
-        gitignore_content = ".idea/\n__pycache__/\n*.pyc\n*.DS_Store\n.venv/\n.env\nlogging/\n" # Added logging/ to ignore logs
-        with open(gitignore_path, "w") as f:
-            f.write(gitignore_content)
-        
-        self.logging.log("Project cleanup complete and .gitignore generated.")
-
     def close_application(self):
-        self.clean_project()
+        # Use new ProjectCleaner
+        ProjectCleaner.clean(self.logging)
         self.logging.log(f"Application Closed normally.")
         self.main_window.close()
 

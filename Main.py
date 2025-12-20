@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtWidgets
-from app.controller import MainController
-from app.logging_manager import LoggingManager
+from app.controllers.main_controller import MainController
+from app.utils.logging_manager import LoggingManager
 
 if __name__ == '__main__':
     # Initialize Logger

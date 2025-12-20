@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import pyqtgraph as pg
-from app.ui.array_visualization_widget import ArrayVisualizationWidget
+from app.views.components.array_widget import ArrayVisualizationWidget
 
 
 class Ui_MainWindow(object):
@@ -31,9 +31,9 @@ class Ui_MainWindow(object):
 
         self.QUIT_BUTTON_STYLESHEETSHEET = """
         QPushButton {
-            color: rgb(8, 51, 143);
+            color: #42A5F5;
             background-color: rgba(255, 255, 255, 0);
-            border: 3px solid rgb(8, 51, 143)
+            border: 3px solid #42A5F5
         }
         QPushButton:hover {
             border-color: rgb(253, 94, 80);
@@ -111,13 +111,13 @@ class Ui_MainWindow(object):
         QSpinBox::up-arrow {
             width: 10px;
             height: 10px;
-            image: url("./static/Up_Arrow.png");
+            image: url("./static/up_arrow.png");
             border: none;
         }
         QSpinBox::down-arrow {
             width: 10px;
             height: 10px;
-            image: url("./static/Down_Arrow.png");
+            image: url("./static/down_arrow.png");
             border: none;
         }
         """
@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
             background: #37474F;
         }
         QComboBox::down-arrow {
-            image: url("./static/Down_Arrow.png");
+            image: url("./static/down_arrow.png");
             width: 10px;
             height: 10px;
         }
@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
 
     def setupTitleBar(self):
         self.title_layout = QtWidgets.QHBoxLayout()
-        self.title_icon = self.createLabel(self.title_layout, "./static/Sensor.png", 50)
+        self.title_icon = self.createLabel(self.title_layout, "./static/sensor.png", 50)
         self.title_label = self.createLabel(self.title_layout, text_font=("PT Sans", 20), max_size=(370, 50))
         
         self.title_layout.addStretch()

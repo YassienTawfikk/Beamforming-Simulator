@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QWidget
-from app.logging_manager import LoggingManager
+from app.utils.logging_manager import LoggingManager
 
 
 class ArrayVisualizationWidget(QWidget):
