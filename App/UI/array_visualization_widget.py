@@ -1,17 +1,17 @@
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtGui import QPainter, QColor, QPen
-from PyQt5.QtCore import QPoint
-from math import cos, radians, sin
+from app.logging_manager import LoggingManager
 
 
 class ArrayVisualizationWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.array_configs = []
+        self.logger = LoggingManager()
 
     def addArray(self, spacing, num_elements, curvature_angle):
         # Adds a new array configuration
         self.array_configs.append((spacing, num_elements, curvature_angle))
+        self.logger.log(f"Added Array: Spacing={spacing:.2f}, Elements={num_elements}, Curve={curvature_angle}", level='info')
         self.update()
 
     def editArray(self, index, spacing, num_elements, curvature_angle):
@@ -19,9 +19,11 @@ class ArrayVisualizationWidget(QWidget):
         zero_based_index = 0
         if 0 <= zero_based_index < len(self.array_configs):
             self.array_configs[0] = (spacing, num_elements, curvature_angle)
+            self.logger.log_debug(f"Edited Array [{index}]: Spacing={spacing:.2f}, Elements={num_elements}, Curve={curvature_angle}")
             self.update()
         else:
-            raise ValueError("Array index out of range")  # Provide feedback for invalid index
+            self.logger.log_warning(f"Attempted to subtract Array at invalid index {index}")
+            # raise ValueError("Array index out of range") 
 
     def updateArrayNumber(self, array_num):
         # Interpret array_num as 1-based and adjust for 0-based indexing
@@ -32,9 +34,11 @@ class ArrayVisualizationWidget(QWidget):
             for _ in range(target_length - current_length):
                 # self.addArray()  # Use default parameters
                 pass
+            self.logger.log(f"Increased array count to {target_length}", level='info')
         elif target_length < current_length:
             # Remove excess arrays
             self.array_configs = self.array_configs[:target_length]
+            self.logger.log(f"Decreased array count to {target_length}", level='info')
         self.update()  # Redraw the widget with updated settings
 
     def get_array_configuration(self, index):
@@ -43,4 +47,5 @@ class ArrayVisualizationWidget(QWidget):
         if 0 <= zero_based_index < len(self.array_configs):
             return self.array_configs[zero_based_index]
         else:
+            self.logger.log_warning(f"Requested configuration for non-existent array {index}")
             raise IndexError("Array index out of range")

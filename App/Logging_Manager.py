@@ -1,40 +1,67 @@
 import logging
 import os
+import sys
 
 
 class LoggingManager:
-    def __init__(self, log_file="Simulation.log"):
-        """Initialize logging configuration."""
-        log_directory = "Logging"
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(LoggingManager, cls).__new__(cls)
+        return cls._instance
+
+    def __init__(self, log_file="simulation.log"):
+        if hasattr(self, 'logger'):
+            return
+
+        self.logger = logging.getLogger("BeamformingApp")
+        self.logger.setLevel(logging.INFO)
+        # Prevent adding multiple handlers if re-initialized
+        if self.logger.hasHandlers():
+            self.logger.handlers.clear()
+        
+        self.logger.propagate = False
+
+        formatter = logging.Formatter("%(asctime)s - [%(levelname)s] - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+
+        # File Handler
+        log_directory = "logging"
         if not os.path.exists(log_directory):
-            os.makedirs(log_directory)  # Create the Logging directory if it does not exist
+            os.makedirs(log_directory)
 
         log_path = os.path.join(log_directory, log_file)
-        self.log_file = log_path
+        file_handler = logging.FileHandler(log_path)
+        file_handler.setFormatter(formatter)
+        self.logger.addHandler(file_handler)
 
-        logging.basicConfig(
-            filename=self.log_file,
-            level=logging.INFO,  # Log levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
-            format="%(asctime)s - %(levelname)s - %(message)s"
-        )
+        # Console Handler
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setFormatter(formatter)
+        self.logger.addHandler(console_handler)
 
     def log(self, message, level='info'):
         """General log method that logs messages based on the level specified."""
-        {
-            'info': logging.info,
-            'error': logging.error,
-            'warning': logging.warning,
-            'debug': logging.debug
-        }[level](message)
+        lvl = level.lower()
+        if lvl == 'info':
+            self.logger.info(message)
+        elif lvl == 'error':
+            self.logger.error(message)
+        elif lvl == 'warning':
+            self.logger.warning(message)
+        elif lvl == 'debug':
+            self.logger.debug(message)
+        else:
+            self.logger.info(message)
 
     def log_action(self, message):
-        logging.info(message)
+        self.logger.info(message)
 
-    def log_error(self, message):
-        logging.error(message)
+    def log_error(self, message, exc_info=False):
+        self.logger.error(message, exc_info=exc_info)
 
     def log_warning(self, message):
-        logging.warning(message)
+        self.logger.warning(message)
 
     def log_debug(self, message):
-        logging.debug(message)
+        self.logger.debug(message)

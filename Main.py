@@ -1,15 +1,17 @@
 import sys
-
 from PyQt5 import QtWidgets
+from app.controller import MainController
+from app.logging_manager import LoggingManager
 
-from App.Controller import MainController
+if __name__ == '__main__':
+    # Initialize Logger
+    logger_manager = LoggingManager()
+    logger_manager.log("--- Application Starting ---", "info")
 
-
-def main():
-    app = QtWidgets.QApplication(sys.argv)
-    controller = MainController(app)
-    sys.exit(controller.run())
-
-
-if __name__ == "__main__":
-    main()
+    try:
+        app = QtWidgets.QApplication(sys.argv)
+        controller = MainController(app)
+        sys.exit(controller.run())
+    except Exception as e:
+        logger_manager.log_error(f"Critical Application Error: {e}", exc_info=True)
+        sys.exit(1)
