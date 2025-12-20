@@ -10,12 +10,11 @@ Beamforming is a pivotal technology in modern systems like wireless communicatio
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-
 ---
 
 ## **Video Demo**
 
-https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6
+<https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6>
 
 ---
 
@@ -24,17 +23,20 @@ https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6
 ## **Features**
 
 ### **Core Functionality**
+
 - **Beam Steering**: Customize steering angles in real time with visual feedback.  
 - **Phased Array Geometry**: Choose between linear and curved arrays, with adjustable curvature parameters.  
 - **Constructive/Destructive Interference Mapping**: Visualize the beam profile and interference map in synchronized views.  
 - **Multiple Array Units**: Add multiple phased array units, each with adjustable parameters and locations.  
 
 ---
+
 ## **Equations Used**
 
 The beamforming simulator relies on the following equations for key computations:
 
 ### **1. Intensity Map**
+
 The intensity map is computed as:
 
 - **Phase Shift**:
@@ -42,7 +44,6 @@ The intensity map is computed as:
 $$
 \text{Phase Shift} = -k \cdot (x \cdot \sin(\text{Steering Angle}) + y \cdot \cos(\text{Steering Angle}))
 $$
-
 
 - **Intensity Map**:
 
@@ -56,7 +57,7 @@ $$
 \text{Distance} = \sqrt{(X - x_{\text{element}})^2 + (Y - y_{\text{element}})^2}
 $$
 
-- **Normalization**: 
+- **Normalization**:
 
 $$
 \text{Normalized Intensity} = \frac{\text{Intensity Map}}{\max(\text{Intensity Map})}
@@ -66,12 +67,11 @@ $$
 
 ### **2. Beam Profile (Array Factor)**
 
-The beam profile (or array factor) is given by: 
+The beam profile (or array factor) is given by:
 
 $$
 \text{Array Factor} = \left| \sum_{\text{elements}} \exp\left(j \cdot \left[k \cdot (x \cdot \sin(\theta) + y \cdot \cos(\theta)) + \text{Phase Shift}\right]\right) \right|^2
 $$
-
 
 ---
 
@@ -79,7 +79,7 @@ $$
 
 The positions of the array elements depend on the geometry:
 
-- **Linear Array**: 
+- **Linear Array**:
   
 $$
 x_i = i \cdot \text{Element Spacing} - \frac{(N-1) \cdot \text{Element Spacing}}{2}, \quad y_i = 0
@@ -91,15 +91,14 @@ $$
 x_i = R \cdot \cos(\text{Angle}) - R, \quad y_i = R \cdot \sin(\text{Angle})
 $$
 
-
 ---
-
 
 ## **Scenarios**
 
 The simulator supports three distinct scenarios, each designed to address specific applications of beamforming:
 
 ### **1. 5G Communications**
+
 - **Objective**: Simulate a beamforming scenario where the system focuses on signals originating from a desired steering angle.  
 - **Explanation**: In 5G communications, it’s common to target a specific user or signal source while allowing other signals to exist in different angles. The simulator demonstrates how beamforming can isolate the desired signal while maintaining the presence of others. This scenario highlights constructive interference in the target angle and the corresponding destructive patterns elsewhere.  
 - **Key Parameters**:
@@ -112,6 +111,7 @@ The simulator supports three distinct scenarios, each designed to address specif
 ---
 
 ### **2. Ultrasound Imaging**
+
 - **Objective**: Model a beamforming scenario where the system produces wide signals covering a specific range in the desired direction.  
 - **Explanation**: Ultrasound imaging requires beams that span a range to provide a complete image. In this scenario, the simulator generates wide beams that ensure the entire target area is covered. It also ensures the frequency is optimized for patient safety, avoiding side effects from excessive energy levels.  
 - **Key Parameters**:
@@ -124,6 +124,7 @@ The simulator supports three distinct scenarios, each designed to address specif
 ---
 
 ### **3. Tumor Ablation**
+
 - **Objective**: Simulate a narrow, focused beam targeting a specific cell or area.  
 - **Explanation**: Tumor ablation involves using highly targeted beams to destroy cancerous cells without affecting surrounding healthy tissue. The simulator generates a narrow beam with high precision in the desired steering angle. Like the ultrasound scenario, the operating frequency is chosen carefully to ensure no harmful side effects occur.  
 - **Key Parameters**:
@@ -138,25 +139,33 @@ The simulator supports three distinct scenarios, each designed to address specif
 ## **How to Run the Project**
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/YassienTawfikk/2D-Beamforming-Simulator.git
    ```
+
 2. Navigate to the project directory:
+
    ```bash
    cd 2D-Beamforming-Simulator
    ```
+
 3. Install the required dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
+
 4. Run the application:
+
    ```bash
-   python Main.py
+   python main.py
    ```
 
 ---
 
 ## Contributors
+
 <div>
 <table align="center">
   <tr>
@@ -188,7 +197,7 @@ The simulator supports three distinct scenarios, each designed to address specif
         <br />
         <sub><b>Youssef Taha</b></sub>
       </a>
-    </td>    
+    </td>
   </tr>
 </table>
 </div>
