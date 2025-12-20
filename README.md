@@ -2,7 +2,7 @@
 
 Beamforming is a pivotal technology in modern systems like wireless communications, radar, ultrasound, and biomedical applications. This project presents a **2D Beamforming Simulator** that allows users to explore, customize, and visualize beamforming scenarios in real time. The simulator provides intuitive controls, flexible customization, and clear visualizations for various applications.
 
-![App Design Overview](https://github.com/user-attachments/assets/dc2b35f6-d83d-47d4-816d-8e1e244de49b)
+![App Design Overview](https://github.com/user-attachments/assets/7a8045ab-8a21-4005-93f2-00203173fdc5)
 
 ---
 
@@ -106,7 +106,7 @@ The simulator supports three distinct scenarios, each designed to address specif
   - Adjustable steering angles for signal focus.
   - Visualization of interference patterns.
 - **Screenshot**:  
-  ![5G Scenario](https://github.com/user-attachments/assets/a2815d1b-5e8a-4c9e-a761-32c3c8f5c06e)
+  ![5G Scenario](https://github.com/user-attachments/assets/84b30aee-525d-470c-b7b4-20ac48b9d834)
 
 ---
 
@@ -119,7 +119,7 @@ The simulator supports three distinct scenarios, each designed to address specif
   - Frequencies fine-tuned for safe medical use.
   - Synchronized visualization of beam profile and interference map.
 - **Screenshot**:  
-  ![Ultrasound Scenario](https://github.com/user-attachments/assets/2b36186f-24cc-48aa-b9de-fcfd35ba97e2)
+  ![Ultrasound Scenario](https://github.com/user-attachments/assets/c5628dac-0137-439c-a965-250d9748008c)
 
 ---
 
@@ -132,7 +132,7 @@ The simulator supports three distinct scenarios, each designed to address specif
   - High accuracy to prevent interaction with adjacent cells.
   - Adjustable array curvature for optimal focus.
 - **Screenshot**:  
-  ![Tumor Ablation Scenario](https://github.com/user-attachments/assets/f3d72381-126e-4902-8aad-f0908179693e)
+  ![Tumor Ablation Scenario](https://github.com/user-attachments/assets/0e63f436-36c4-41b3-91a0-57c10da1544c)
 
 ---
 
