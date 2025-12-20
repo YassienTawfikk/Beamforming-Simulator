@@ -15,3 +15,7 @@ if __name__ == '__main__':
     except Exception as e:
         logger_manager.log_error(f"Critical Application Error: {e}", exc_info=True)
         sys.exit(1)
+
+    finally:
+        logger_manager.log("--- Application Closing ---", "info")
+        sys.exit(0) 

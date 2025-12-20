@@ -101,7 +101,7 @@ class MainController:
             pen=None,
             symbol='o',
             symbolSize=10,
-            symbolBrush='w'
+            symbolBrush='#00FF00'
         )
         if x_coords:
             x_min, x_max = min(x_coords), max(x_coords)
@@ -198,7 +198,6 @@ class MainController:
     def close_application(self):
         # Use new ProjectCleaner
         ProjectCleaner.clean(self.logging)
-        self.logging.log(f"Application Closed normally.")
         self.main_window.close()
 
     def run(self):

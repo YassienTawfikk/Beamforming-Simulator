@@ -14,137 +14,131 @@ class Ui_MainWindow(object):
         self.BUTTON_STYLESHEET = """
         QPushButton {
             color: #E0E0E0;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid #546E7A;
-            border-radius: 6px;
+            background-color: #333333;
+            border: none;
+            border-bottom: 2px solid #555555;
+            border-radius: 4px;
+            font-family: 'Segoe UI', sans-serif;
             font-size: 14px;
-            padding: 5px;
+            padding: 6px;
         }
         QPushButton:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: #81D4FA;
+            background-color: #444444;
+            border-bottom: 2px solid #00FF00;
         }
         QPushButton:pressed {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: #222222;
+            border-bottom: 2px solid #00FF00;
+            color: #00FF00;
         }
         """
 
         self.QUIT_BUTTON_STYLESHEETSHEET = """
         QPushButton {
-            color: #42A5F5;
-            background-color: rgba(255, 255, 255, 0);
-            border: 3px solid #42A5F5
+            color: #E0E0E0;
+            background-color: transparent;
+            border: 1px solid #E0E0E0;
+            font-weight: bold;
+            border-radius: 20px;
         }
         QPushButton:hover {
-            border-color: rgb(253, 94, 80);
-            color: rgb(253, 94, 80);
+            border-color: #FF5252;
+            color: #FF5252;
+            background-color: rgba(255, 82, 82, 0.1);
         }
         """
         self.SCENARIOS_BUTTON_STYLESHEETSHEET = """
         QPushButton {
-            color: #42A5F5;
-            background-color: transparent;
-            border: 2px solid #42A5F5;
-            border-radius: 6px;
+            color: #00FF00;
+            background-color: #1A1A1A;
+            border: 1px solid #00FF00;
+            border-radius: 4px;
             font-weight: bold;
+            text-transform: uppercase;
         }
         QPushButton:hover {
-            background-color: #42A5F5;
-            color: white;
+            background-color: #00FF00;
+            color: #000000;
         }
         """
         self.SLIDER_STYLESHEET = """
         QSlider::groove:horizontal {
-            border: 1px solid #37474F;
-            height: 6px;
-            background: #263238;
+            height: 1px;
+            background: #555555;
             margin: 2px 0;
-            border-radius: 3px;
         }
         QSlider::handle:horizontal {
-            background: #29B6F6;
-            border: 1px solid #29B6F6;
-            width: 18px;
-            height: 18px;
-            margin: -7px 0;
-            border-radius: 9px;
+            background: #00FF00;
+            border: 1px solid #00FF00;
+            width: 10px;
+            height: 20px;
+            margin: -10px 0;
+            border-radius: 1px;
         }
         QSlider::handle:horizontal:hover {
-            background: #4FC3F7;
+            background: #66FF66;
         }
         QSlider::sub-page:horizontal {
-            background: #0288D1;
-            border-radius: 3px;
+            background: #00FF00;
+            height: 1px;
         }
         """
         self.SPINBOX_STYLESHEET = """
         QSpinBox {
-            background-color: #263238;
-            color: #ECEFF1;
-            border: 1px solid #546E7A;
-            border-radius: 4px;
+            background-color: #000000;
+            color: #00FF00;
+            border: 1px solid #333333;
+            border-radius: 0px;
             padding: 6px;
+            font-family: 'Consolas', monospace;
             font-size: 14px;
+            font-weight: bold;
         }
         QSpinBox:hover {
-            border: 1px solid #81D4FA;
+            border: 1px solid #00FF00;
         }
-        QSpinBox::up-button {
-            subcontrol-origin: border;
-            subcontrol-position: top right;
+        QSpinBox::up-button, QSpinBox::down-button {
             width: 20px;
-            border-left: 1px solid #546E7A;
-            background: #37474F;
-            border-top-right-radius: 4px;
-        }
-        QSpinBox::down-button {
-            subcontrol-origin: border;
-            subcontrol-position: bottom right;
-            width: 20px;
-            border-left: 1px solid #546E7A;
-            background: #37474F;
-            border-bottom-right-radius: 4px;
+            background: #222222;
+            border: none;
+            border-left: 1px solid #333333;
         }
         QSpinBox::up-button:hover, QSpinBox::down-button:hover {
-            background: #455A64;
+            background: #333333;
         }
         QSpinBox::up-arrow {
             width: 10px;
             height: 10px;
             image: url("./static/up_arrow.png");
-            border: none;
         }
         QSpinBox::down-arrow {
             width: 10px;
             height: 10px;
             image: url("./static/down_arrow.png");
-            border: none;
         }
         """
         self.COMBOBOX_STYLESHEET = """
         QComboBox {
-            background-color: #263238;
-            color: #ECEFF1;
-            border: 1px solid #546E7A;
-            border-radius: 4px;
+            background-color: #000000;
+            color: #00FF00;
+            border: 1px solid #333333;
+            border-radius: 0px;
             padding: 6px;
             padding-left: 10px;
+            font-family: 'Consolas', monospace;
             font-size: 14px;
+            font-weight: bold;
             min-width: 300px;
         }
         QComboBox:hover {
-            border: 1px solid #81D4FA;
+            border: 1px solid #00FF00;
         }
         QComboBox::drop-down {
             subcontrol-origin: padding;
             subcontrol-position: top right;
             width: 25px;
-            border-left-width: 1px;
-            border-left-color: #546E7A;
-            border-left-style: solid;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            background: #37474F;
+            border-left: 1px solid #333333;
+            background: #222222;
         }
         QComboBox::down-arrow {
             image: url("./static/down_arrow.png");
@@ -152,10 +146,11 @@ class Ui_MainWindow(object):
             height: 10px;
         }
         QComboBox QAbstractItemView {
-            background-color: #37474F;
-            color: #ECEFF1;
-            selection-background-color: #0288D1;
-            border: 1px solid #546E7A;
+            background-color: #111111;
+            color: #E0E0E0;
+            selection-background-color: #00FF00;
+            selection-color: #000000;
+            border: 1px solid #333333;
         }
         """
 
@@ -175,7 +170,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 800)
         MainWindow.setFont(QtGui.QFont("Noto Serif Balinese"))
-        MainWindow.setStyleSheet("background-color:#1A1A40")
+        MainWindow.setStyleSheet("background-color: #121212")
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -235,9 +230,9 @@ class Ui_MainWindow(object):
         self.graphsContainer = QtWidgets.QWidget()
         self.graphsContainer.setStyleSheet("""
             QWidget {
-                background-color: rgba(34, 34, 68, 255);
-                color: #E0E0E0;
-                border: 1px solid #B0BEC5;
+                background-color: #121212;
+                color: #e0e0e0;
+                border: 1px solid #333333;
             }
         """)
         
@@ -297,22 +292,25 @@ class Ui_MainWindow(object):
         # We can implement this simply by adding pg widgets to the grid
         # Left: Intensity Map
         self.graphWidget1 = pg.GraphicsLayoutWidget()
-        self.graphWidget1.setBackground('#1A1A40')
+        self.graphWidget1.setBackground('#000000') # Pure Black for Ultrasound Look
         self.plots_layout.addWidget(self.graphWidget1, 0, 0)
 
         # Right: Beam Profile & Array Shape
         self.graphWidget2 = pg.GraphicsLayoutWidget()
-        self.graphWidget2.setBackground('#1A1A40')
+        self.graphWidget2.setBackground('#000000') # Pure Black
         self.plots_layout.addWidget(self.graphWidget2, 0, 1)
 
         # Setup Intensity Map
         self.intensityMapItem = self.graphWidget1.addPlot(title="Intensity Map")
-        self.intensityMapItem.setLabel('left', 'Frequency', color='w')
-        self.intensityMapItem.setLabel('bottom', 'Time', color='w')
+        self.intensityMapItem.setLabel('left', 'Frequency', color='#CCCCCC')
+        self.intensityMapItem.setLabel('bottom', 'Time', color='#CCCCCC')
+        self.intensityMapItem.getAxis('bottom').setPen(pg.mkPen(color='#CCCCCC'))
+        self.intensityMapItem.getAxis('left').setPen(pg.mkPen(color='#CCCCCC'))
+        
         self.intensityImageItem = pg.ImageItem()
         self.intensityMapItem.addItem(self.intensityImageItem)
         
-        colormap = pg.colormap.get('seismic', source='matplotlib')
+        colormap = pg.colormap.get('bone', source='matplotlib')  # Bone (Grayscale + Blue tint) for tissue echogenicity
         self.intensityImageItem.setLookupTable(colormap.getLookupTable())
         
         colorBar = pg.ColorBarItem(interactive=False, colorMap=colormap)
@@ -321,14 +319,18 @@ class Ui_MainWindow(object):
 
         # Setup Beam Profile (Right, Top)
         self.beamProfileItem = self.graphWidget2.addPlot(row=0, col=0, title="Beam Profile")
-        self.beamProfileItem.setLabel('left', 'Array Factor')
-        self.beamProfileItem.setLabel('bottom', 'Angle')
-        self.beamProfileItem.showGrid(x=True, y=True, alpha=0.2)
-        self.beamProfileLine = self.beamProfileItem.plot(pen=pg.mkPen(color='w', width=2))
+        self.beamProfileItem.setLabel('left', 'Array Factor', color='#CCCCCC')
+        self.beamProfileItem.setLabel('bottom', 'Angle', color='#CCCCCC')
+        self.beamProfileItem.getAxis('bottom').setPen(pg.mkPen(color='#CCCCCC'))
+        self.beamProfileItem.getAxis('left').setPen(pg.mkPen(color='#CCCCCC'))
+        self.beamProfileItem.showGrid(x=True, y=True, alpha=0.1) # Faint grid
+        self.beamProfileLine = self.beamProfileItem.plot(pen=pg.mkPen(color='#00FF00', width=2)) # Electric Green for overlay data
 
         # Setup Array Shape (Right, Bottom)
         self.arrayShapeItem = self.graphWidget2.addPlot(row=1, col=0, title="Array Shape")
-        self.arrayShapeItem.showGrid(x=True, y=True, alpha=0.3)
+        self.arrayShapeItem.getAxis('bottom').setPen(pg.mkPen(color='#CCCCCC'))
+        self.arrayShapeItem.getAxis('left').setPen(pg.mkPen(color='#CCCCCC'))
+        self.arrayShapeItem.showGrid(x=True, y=True, alpha=0.1)
 
     def setupMainButtons(self):
         # Center the buttons
