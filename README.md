@@ -14,7 +14,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## **Video Demo**
 
-<https://github.com/user-attachments/assets/7af93bb1-0a6b-47ba-b021-24cd3ee387c6>
+<https://github.com/user-attachments/assets/d5588842-c0aa-47e6-9b5e-e1bd604a8439>
 
 ---
 
